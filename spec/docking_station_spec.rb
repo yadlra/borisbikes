@@ -8,6 +8,15 @@ RSpec.describe DockingStation do
     end
      it 'release a bike' do
        expect(subject.release_bike).to be_a(Bike)
+      end
+   end
+
+   describe '#dock' do
+     it 'docks a bike' do
+       expect(subject).to respond_to :dock
+     end
+     it 'accepts a bike' do
+       expect(subject.dock('bike')).to eq('bike')
      end
    end
 end
