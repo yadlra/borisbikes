@@ -8,6 +8,9 @@ RSpec.describe DockingStation do
     end
      it 'release a bike' do
        expect(subject.release_bike).to be_a(Bike)
+     end
+      it 'gives error' do
+        expect(subject.release_bike).to raise_error("No bikes available")
       end
    end
 
