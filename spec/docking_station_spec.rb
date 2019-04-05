@@ -1,6 +1,7 @@
 require 'docking_station'
 require 'bike'
 
+
 RSpec.describe DockingStation do
   describe '#release_bike' do
     it 'responds to release bike' do
@@ -20,6 +21,10 @@ RSpec.describe DockingStation do
      end
      it 'accepts a bike' do
        expect(subject.dock('bike')).to eq('bike')
+     end
+     it 'raises error if docking station is full' do
+       subject.dock(Bike.new)
+       expect {subject.dock Bike.new}.to raise_error("Station is full")
      end
    end
 end
